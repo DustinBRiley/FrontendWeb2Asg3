@@ -25,9 +25,9 @@ function App() {
   return (
     <div className="App">
       <h1>Welcome to the Task Manager</h1>
-      <label>
+      <label style={{padding: "10px"}}>
           Task Description:
-          <input type="text" value={descr} onChange={(e) => {setDescr(e.target.value)}}></input>
+          <input type="text" style={{margin: "5px"}} value={descr} onChange={(e) => {setDescr(e.target.value)}}></input>
       </label>
       <button onClick={addTask}>Submit</button>
       {tasks.map((task,i) => {
