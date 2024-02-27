@@ -8,7 +8,7 @@ function App() {
   const [id, setId] = useState(0)
 
   function addTask() {
-    setTasks([...tasks,{id: id, descr: descr, completed: false}]);
+    setTasks([...tasks,{id: id, descr: descr, completed: false, addSub: false}]);
     // took forever to figure out I needed id and completed here
     setDescr("")
     setId(id+1)
@@ -22,6 +22,10 @@ function App() {
     setTasks(tasks.map(task => task.id === id ? {...task, completed: !task.completed} : task))
   }
 
+  // const toggleSubform = id => {
+  //   setTasks(tasks.map(task => task.id === id ? {...task, addSub: !task.addSub} : task))
+  // }
+
   return (
     <div className="App">
       <h1>Welcome to the Task Manager</h1>
@@ -31,7 +35,16 @@ function App() {
       </label>
       <button onClick={addTask}>Submit</button>
       {tasks.map((task,i) => {
-        return <Task key={i} id={task.id} description={task.descr} completed={task.completed} checked={checked} delTask={delTask}></Task>
+        return <Task
+        key={i}
+        id={task.id}
+        description={task.descr}
+        completed={task.completed}
+        addSub={task.addSub}
+        checked={checked}
+        // toggleSubform={toggleSubform}
+        delTask={delTask}
+        ></Task>
         //passing functions took forever to figure out
       })}
     </div>
