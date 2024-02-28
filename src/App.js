@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Task from './components/Task';
-import {v4 as uuidv4} from "uuid"
+import {v4} from "uuid"
 
 function App() {
   const [tasks, setTasks] = useState([])
@@ -24,7 +24,7 @@ function App() {
     if(descr === "") {
       alert("task cannot be empty")
     } else {
-      setTasks(tasks.map(task => task.id === id-1 ? {...task, subDescr: descr} : task))
+      setTasks(prev => prev.map(task => task.id === id-1 ? {...task, subDescr: descr} : task))
       setDescr("")
     }
     e.preventDefault()

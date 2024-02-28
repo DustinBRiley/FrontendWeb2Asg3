@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Subtask from "./Subtask"
-import {v4 as uuidv4} from "uuid"
+import {v4} from "uuid"
 
 function Task(props) {
     const [subtasks, setSubtasks] = useState([])
