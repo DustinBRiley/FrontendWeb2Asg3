@@ -7,13 +7,12 @@ function Subtask(props) {
                 display: "flex",
                 justifyContent: "space-between",
                 background: props.completed ? "green" : "red",
-                textDecoration: props.completed ? "line-through" : "none",
                 margin: "5% 12%",
                 padding: "5px",
                 width: "75%"
             }}>
-            <input type="checkbox" onChange={() => props.checked(props.id)} id="check" />
-            {props.description}
+            <input type="checkbox" onChange={() => props.checked(props.id)}/>
+            <p style={{textDecoration: props.completed ? "line-through" : "none"}}>{props.description}</p>
             <button onClick={() => props.delTask(props.id)}>X</button>
             </label>
         </div>
